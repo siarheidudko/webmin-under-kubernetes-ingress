@@ -1,6 +1,7 @@
 # webmin-under-kubernetes-ingress
 Configure the webmin server as an external service and proxy through ingress kubernetes
 
+```bash
 # Env
 export WEBMIN_PUBLIC_HOSTNAME="webmin-m1.example.com"
 export WEBMIN_SERVICE_HOSTNAME="k8s-m1.example.com"
@@ -68,5 +69,6 @@ redirect_host=$WEBMIN_PUBLIC_HOSTNAME
 EOF
 
 systemctl restart webmin
+```
 
-# You will also need to configure the Trusted Refferers on a one-time basis in the webmin for WEBMIN_PUBLIC_HOSTNAME or disable verification.
+You will also need to configure the Trusted Refferers on a one-time basis in the webmin for WEBMIN_PUBLIC_HOSTNAME or disable verification.
