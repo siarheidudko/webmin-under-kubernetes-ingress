@@ -72,3 +72,10 @@ systemctl restart webmin
 ```
 
 You will also need to configure the Trusted Refferers on a one-time basis in the webmin for WEBMIN_PUBLIC_HOSTNAME or disable verification.
+
+You will probably want to use the user's real IP addresses, so you will have to set the appropriate ingress policy.
+```bash
+kubectl patch svc ingress-nginx-controller -p '{"spec":{"externalTrafficPolicy":"Local"}}'
+```
+
+The above example does not require opening the webmin 10000 port for public access, it must be accessible within the cluster network.
